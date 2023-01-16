@@ -1,4 +1,5 @@
 defmodule ExMon.Game do
+  alias ExMon.Player
   use Agent
 
   def start(computer, player) do
@@ -18,5 +19,7 @@ defmodule ExMon.Game do
   def turn, do: Map.get(info(), :turn)
   def fetch_player(player), do: Map.get(info(), player)
 
-  defp update_game_status
+  defp update_game_status(%{player: %Player{life: player_life}, computer: %Player{life: computer_life}} = state) do
+    when player_life == 0 or computer_life == 0, do: Map.put(state, :status, :game_over)
+  end
 end
