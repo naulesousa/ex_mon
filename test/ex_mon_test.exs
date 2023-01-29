@@ -1,6 +1,8 @@
 defmodule ExMonTest do
   use ExUnit.Case
 
+  import ExUnit.CaptureIO
+
   alias ExMon.Player
 
   describe "create_player/4" do
