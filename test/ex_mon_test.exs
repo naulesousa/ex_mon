@@ -30,4 +30,11 @@ defmodule ExMonTest do
       assert messages =~ "turn: :player"
     end
   end
+
+  describe "make_move/1" do
+    test "when the move is valid, do the move and the computer makes a move" do
+      player = Player.build("Soldier P", :chute, :soco, :cura)
+      ExMon.start_game(player)
+    end
+  end
 end
